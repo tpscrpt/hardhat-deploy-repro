@@ -5,11 +5,11 @@ describe("Greeter", function() {
     const Greeter = await ethers.getContractFactory("Greeter");
     
     for (let i = 0; i < 50; i ++ ) {
-      const greeter = await Greeter.deploy("Hello, world!");
+      const greeter = await Greeter.deploy("Hello, world!", {gasLimit: 999999999});
+      await greeter.deployed();
       console.log(greeter.address)
     }
 
-    // await greeter.deployed();
     // expect(await greeter.greet()).to.equal("Hello, world!");
 
     // await greeter.setGreeting("Hola, mundo!");

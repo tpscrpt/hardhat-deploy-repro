@@ -15,9 +15,13 @@ async function main() {
 
   // We get the contract to deploy
   const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
 
-  await greeter.deployed();
+  for (let i = 0; i < 50; i ++) {
+    const greeter = await Greeter.deploy("Hello, Hardhat!", {gasLimit: 999999999});
+    await greeter.deployed();
+    console.log(i, greeter.address)
+  }
+
 
   console.log("Greeter deployed to:", greeter.address);
 }

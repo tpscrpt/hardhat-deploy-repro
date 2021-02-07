@@ -20,6 +20,7 @@ module.exports = {
   solidity: "0.7.3",
   networks: {
     hardhat: {
+      blockGasLimit: 999999999,
       forking: {
         url: "https://eth-mainnet.alchemyapi.io/v2/QmTWJK5MH1mmVSJdJ6VJFiX1Qfk6S36J"
       }
